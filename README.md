@@ -6,7 +6,7 @@
 
 ---
 ### 数据表格展示
-![image](/git/show_1.png)
+![image](https://raw.githubusercontent.com/hakubox/FormTable/master/images/git/show_1.png)
 
 ---
 ### 使用方法
