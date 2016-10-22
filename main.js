@@ -1,5 +1,5 @@
 var program = [{
-    name: "项目A",
+    name: "testA",
     data: [{
         date: {
             year: 2016,
@@ -28,71 +28,71 @@ var program = [{
         style: "green"
     }, ]
 }, {
-    name: "项目B"
+    name: "testB"
 }, {
-    name: "项目C1"
+    name: "testC1"
 }, {
-    name: "项目C2"
+    name: "testC2"
 }, {
-    name: "项目C3"
+    name: "testC3"
 }, {
-    name: "项目C4"
+    name: "testC4"
 }, {
-    name: "项目C5"
+    name: "testC5"
 }, {
-    name: "项目C6"
+    name: "testC6"
 }, {
-    name: "项目C7"
+    name: "testC7"
 }, {
-    name: "项目C8"
+    name: "testC8"
 }, {
-    name: "项目C9"
+    name: "testC9"
 }, {
-    name: "项目C10"
+    name: "testC10"
 }, {
-    name: "项目C11"
+    name: "testC11"
 }, {
-    name: "项目C12"
+    name: "testC12"
 }, {
-    name: "项目C13"
+    name: "testC13"
 }, {
-    name: "项目C14"
+    name: "testC14"
 }, {
-    name: "项目C15"
+    name: "testC15"
 }, {
-    name: "项目C16"
+    name: "testC16"
 }, {
-    name: "项目C17"
+    name: "testC17"
 }, {
-    name: "项目C18"
+    name: "testC18"
 }, {
-    name: "项目C19"
+    name: "testC19"
 }, {
-    name: "项目C20"
+    name: "testC20"
 }, {
-    name: "项目C"
+    name: "testC"
 }, {
-    name: "项目C"
+    name: "testC"
 }, {
-    name: "项目C"
+    name: "testC"
 }, {
-    name: "项目C"
+    name: "testC"
 }, {
-    name: "项目C"
+    name: "testC"
 }, {
-    name: "项目C"
+    name: "testC"
 }, {
-    name: "项目C"
+    name: "testC"
 }, {
-    name: "项目C"
+    name: "testC"
 }, {
-    name: "项目C"
+    name: "testC"
 }, {
-    name: "项目C"
+    name: "testC"
 }, {
-    name: "项目C"
+    name: "testC"
 }, {
-    name: "项目C"
+    name: "testC"
 }];
 /**
  * 工具函数
@@ -111,7 +111,7 @@ Tool = {
             }
         }
     }
-//看板类
+    //看板类
 function BarChart(element, startDate, endDate) {
     var me = this;
     this.Element = document.querySelector(element);
@@ -372,7 +372,7 @@ function BarChart(element, startDate, endDate) {
             me.Region.Width = me.DayCount * 50;
             document.querySelectorAll(element + " .bar-chart-header > .header-row")[0].innerHTML = element_month;
             document.querySelectorAll(element + " .bar-chart-header > .header-row")[1].innerHTML = element_day;
-            //填充项目
+            //填充test
             var element_program = "";
             var element_data = "";
             for (var i = 0; i < program.length; i++) {
