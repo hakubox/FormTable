@@ -1,393 +1,381 @@
 * {
-            font-family: "微软雅黑";
-        }
+    font-family: "微软雅黑";
+}
+@keyframes myfirst {
+    from {
+        box-shadow: inset 0px -1px 2px rgba(20, 255, 90, 0.1);
+    }
+    to {
+        box-shadow: inset 0px -1px 5px rgba(20, 255, 90, 0.3);
+    }
+}
+@-moz-keyframes myfirst {
+    from {
+        box-shadow: inset 0px -1px 2px rgba(20, 255, 90, 0.1);
+    }
+    to {
+        box-shadow: inset 0px -1px 6px rgba(20, 255, 90, 0.3);
+    }
+}
+@-webkit-keyframes myfirst {
+    from {
+        box-shadow: inset 0px -1px 2px rgba(20, 255, 90, 0.1);
+    }
+    to {
+        box-shadow: inset 0px -1px 6px rgba(20, 255, 90, 0.3);
+    }
+}
+@-o-keyframes myfirst {
+    from {
+        box-shadow: inset 0px -1px 2px rgba(20, 255, 90, 0.1);
+    }
+    to {
+        box-shadow: inset 0px -1px 6px rgba(20, 255, 90, 0.3);
+    }
+}
+.bar-chart {
+    position: relative;
+    margin: 20px;
+    width: 1000px;
+    height: 505px;
+    border: 1px solid #CCC;
+    font-size: 12px;
+    /*禁止选择*/
+    -moz-user-select: none;
+    /*火狐*/
+    -webkit-user-select: none;
+    /*webkit浏览器*/
+    -ms-user-select: none;
+    /*IE10*/
+    -khtml-user-select: none;
+    /*早期浏览器*/
+    user-select: none;
+}
+.bar-chart > .bar-chart-content {
+    background-color: white;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+.bar-chart.autoscroll > .bar-chart-content {
+    animation: myfirst 0.5s infinite alternate;
+    -moz-animation: myfirst 0.5s infinite alternate;
+    /* Firefox */
+    -webkit-animation: myfirst 0.5s infinite alternate;
+    /* Safari 和 Chrome */
+    -o-animation: myfirst 0.5s infinite alternate;
+    /* Opera */
+}
+.bar-chart > .bar-chart-content > .bar-chart-lefttopcell {
+    box-sizing: border-box;
+    position: absolute;
+    height: 44px;
+    width: 150px;
+    background-color: #3879D9;
+    color: white;
+    font-size: 15px;
+    border: 1px solid #99F;
+    text-align: center;
+    line-height: 44px;
+    z-index: 10;
+}
+.bar-chart > .bar-chart-content > .bar-chart-header {
+    position: relative;
+    z-index: 9;
+}
+.bar-chart > .bar-chart-content > .bar-chart-header > .header-row {
+    display: block;
+    margin-left: 150px;
+}
+.bar-chart > .bar-chart-content > .bar-chart-header > .header-row > .header-row-cell {
+    box-sizing: border-box;
+    display: inline-block;
+    letter-spacing: 0px;
+    background-color: #3879D9;
+    color: white;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    border-right: 1px solid #99F;
+    border-bottom: 1px solid #99F;
+    cursor: default;
+}
+.bar-chart > .bar-chart-content > .bar-chart-header > .header-row > .header-row-cell > .shade {
+    position: relative;
+    display: none;
+    outline: 1px dashed rgba(20, 90, 255, 0.5);
+    background-color: rgba(20, 90, 255, 0.1);
+    height: 3000px;
+    width: 100%;
+    top: 0px;
+    z-index: -1;
+}
+.bar-chart > .bar-chart-content > .bar-chart-header > .header-row > .header-row-cell:hover > .shade {
+    display: block;
+}
+.bar-chart > .bar-chart-content > .bar-chart-header > .header-row > .header-row-cell > .shade:hover {
+    display: none;
+}
+.bar-chart > .bar-chart-content > .bar-chart-header > .header-row > .header-row-cell.year {}
+.bar-chart > .bar-chart-content > .bar-chart-sidebar {
+    position: relative;
+    width: 150px;
+    z-index: 9;
+}
+.bar-chart > .bar-chart-content > .bar-chart-sidebar > .sidebar-row {
+    box-sizing: border-box;
+    width: 150px;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 13px;
+    height: 22px;
+    line-height: 22px;
+    background-color: #3879D9;
+    color: white;
+    border-right: 1px solid #99F;
+    border-bottom: 1px solid #99F;
+    cursor: default;
+}
+.bar-chart > .bar-chart-content > .bar-chart-sidebar > .sidebar-row > .shade {
+    position: relative;
+    display: none;
+    outline: 1px dashed rgba(20, 90, 255, 0.5);
+    background-color: rgba(20, 90, 255, 0.1);
+    width: 3000px;
+    height: 21px;
+    left: 150px;
+    top: -22px;
+    z-index: -1;
+}
+.bar-chart > .bar-chart-content > .bar-chart-sidebar > .sidebar-row:hover > .shade {
+    display: block;
+}
+.bar-chart > .bar-chart-content > .bar-chart-sidebar > .sidebar-row > .shade:hover {
+    display: none;
+}
+.bar-chart > .bar-chart-content > .bar-chart-data {
+    position: absolute;
+    top: 44px;
+    left: 150px;
+    width: calc(100% - 150px);
+    z-index: 8;
+}
+.bar-chart > .bar-chart-content > .bar-chart-data > .data-row {
+    width: 100%;
+}
+.bar-chart > .bar-chart-content > .bar-chart-data > .data-row > .data-cell {
+    position: relative;
+    box-sizing: border-box;
+    display: inline-block;
+    letter-spacing: 0px;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    width: 50px;
+}
+.bar-chart > .bar-chart-content > .bar-chart-data > .data-row:last-child {
+    box-shadow: inset 0px -2px 3px rgba(20, 100, 250, 0.3);
+}
+.bar-chart > .bar-chart-content > .bar-chart-data > .data-row > .data-cell:hover {
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 1);
+    z-index: 11;
+}
+.bar-chart > .bar-chart-content > .bar-chart-data > .data-row > .data-cell > .data-cell-table {
+    word-break: break-word;
+    display: table;
+    width: 100%;
+    height: 100%;
+    table-layout: fixed;
+}
+.bar-chart > .bar-chart-content > .bar-chart-data > .data-row > .data-cell > .data-cell-table > a {
+    display: table-cell;
+    line-height: 22px;
+    cursor: pointer;
+    text-overflow: clip;
+    text-decoration: none;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #EEE;
+}
+.bar-chart > .bar-chart-scrollbar {
+    transition: 0.15s;
+    position: absolute;
+    z-index: 12;
+    cursor: default;
+}
+.bar-chart > .bar-chart-scrollbar.horizontal {
+    bottom: -30px;
+    left: 0px;
+    width: 100%;
+    height: 16px;
+}
+.bar-chart > .bar-chart-scrollbar.horizontal > .bar-chart-scrollbar-content {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 16px;
+}
+.bar-chart > .bar-chart-scrollbar.vertical {
+    right: -30px;
+    top: 0px;
+    width: 16px;
+    height: 100%;
+}
+.bar-chart > .bar-chart-scrollbar.vertical > .bar-chart-scrollbar-content {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 16px;
+    height: calc(100%);
+}
 
-        @keyframes myfirst  { from { box-shadow: inset 0px -1px 2px rgba(20,255,90,0.1); } to { box-shadow: inset 0px -1px 5px rgba(20,255,90,0.3); } }
-        @-moz-keyframes myfirst { from { box-shadow: inset 0px -1px 2px rgba(20,255,90,0.1); } to { box-shadow: inset 0px -1px 6px rgba(20,255,90,0.3); } }
-        @-webkit-keyframes myfirst { from { box-shadow: inset 0px -1px 2px rgba(20,255,90,0.1); } to { box-shadow: inset 0px -1px 6px rgba(20,255,90,0.3); } }
-        @-o-keyframes myfirst { from { box-shadow: inset 0px -1px 2px rgba(20,255,90,0.1); } to { box-shadow: inset 0px -1px 6px rgba(20,255,90,0.3); } } 
+/*按钮*/
 
+.bar-chart > .bar-chart-scrollbar > .bar-chart-scrollbar-content .scrollbar-btn {
+    position: absolute;
+    display: block;
+    background-image: url(images/scroll_buttons.png);
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    filter: "alpha(opacity=30)";
+    -ms-filter: "alpha(opacity=30)";
+    opacity: 0.3;
+    transition: 0.15s;
+}
+.bar-chart > .bar-chart-scrollbar.horizontal > .bar-chart-scrollbar-content > .scrollbar-btn.btn-prev {
+    top: 0px;
+    left: 0px;
+    background-position: -124px -112px;
+}
+.bar-chart > .bar-chart-scrollbar.horizontal > .bar-chart-scrollbar-content > .scrollbar-btn.btn-next {
+    right: 0px;
+    bottom: 0px;
+    background-position: -123px -128px;
+}
+.bar-chart > .bar-chart-scrollbar.vertical > .bar-chart-scrollbar-content > .scrollbar-btn.btn-prev {
+    top: 0px;
+    left: 0px;
+    background-position: -112px -74px;
+}
+.bar-chart > .bar-chart-scrollbar.vertical > .bar-chart-scrollbar-content > .scrollbar-btn.btn-next {
+    right: 0px;
+    bottom: 0px;
+    background-position: -112px -94px;
+}
 
-        .bar-chart {
-            position: relative;
-            margin: 20px;
-            width: 1000px;
-            height: 505px;
-            border: 1px solid #CCC;
-            font-size: 12px;
-            /*禁止选择*/
-            -moz-user-select: none; /*火狐*/
-            -webkit-user-select: none; /*webkit浏览器*/
-            -ms-user-select: none; /*IE10*/
-            -khtml-user-select: none; /*早期浏览器*/
-            user-select: none;
-        }
+/*轨道*/
 
-            .bar-chart > .bar-chart-content {
-                background-color: white;
-                position: absolute;
-                overflow: hidden;
-                width: 100%;
-                height: 100%;
-            }
+.bar-chart > .bar-chart-scrollbar > .bar-chart-scrollbar-content > .scrollbar-rail {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    transition: 0.15s;
+}
+.bar-chart > .bar-chart-scrollbar > .bar-chart-scrollbar-content > .scrollbar-rail:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.bar-chart > .bar-chart-scrollbar.horizontal > .bar-chart-scrollbar-content > .scrollbar-rail {
+    height: 4px;
+    left: 16px;
+    width: calc(100% - 32px);
+    top: 6px;
+}
+.bar-chart > .bar-chart-scrollbar.vertical > .bar-chart-scrollbar-content > .scrollbar-rail {
+    width: 4px;
+    top: 16px;
+    height: calc(100% - 32px);
+    left: 6px;
+}
 
-            .bar-chart.autoscroll > .bar-chart-content {
-                animation: myfirst 0.5s infinite alternate;
-                -moz-animation: myfirst 0.5s infinite alternate;	/* Firefox */
-                -webkit-animation: myfirst 0.5s infinite alternate;	/* Safari 和 Chrome */
-                -o-animation: myfirst 0.5s infinite alternate;	/* Opera */
-            }
+/*滑块*/
 
-                .bar-chart > .bar-chart-content > .bar-chart-lefttopcell {
-                    box-sizing: border-box;
-                    position: absolute;
-                    height: 44px;
-                    width: 150px;
-                    background-color: #3879D9;
-                    color: white;
-                    font-size: 15px;
-                    border: 1px solid #99F;
-                    text-align: center;
-                    line-height: 44px;
-                    z-index: 10;
-                }
+.bar-chart > .bar-chart-scrollbar.horizontal > .bar-chart-scrollbar-content > .scrollbar-dragger {
+    cursor: default;
+    position: absolute;
+    min-width: 30px;
+    display: block;
+    max-height: 250px;
+    top: 0px;
+    height: 100%;
+}
+.bar-chart > .bar-chart-scrollbar.horizontal > .bar-chart-scrollbar-content > .scrollbar-dragger > .scrollbar-dragger-bar {
+    position: absolute;
+    height: 6px;
+    width: 100%;
+    top: 5px;
+    background-color: rgba(0, 0, 0, 0.4);
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+.bar-chart > .bar-chart-scrollbar.vertical > .bar-chart-scrollbar-content > .scrollbar-dragger {
+    position: absolute;
+    min-height: 30px;
+    display: block;
+    left: 0px;
+    width: 100%;
+}
+.bar-chart > .bar-chart-scrollbar.vertical > .bar-chart-scrollbar-content > .scrollbar-dragger > .scrollbar-dragger-bar {
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    left: 5px;
+    background-color: rgba(0, 0, 0, 0.4);
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
 
-                .bar-chart > .bar-chart-content > .bar-chart-header {
-                    position: relative;
-                    z-index: 9;
-                }
+/*各种鼠标移上去的效果*/
 
-                    .bar-chart > .bar-chart-content > .bar-chart-header > .header-row {
-                        display: block;
-                        margin-left: 150px;
-                    }
-
-                        .bar-chart > .bar-chart-content > .bar-chart-header > .header-row > .header-row-cell {
-                            box-sizing: border-box;
-                            display: inline-block;
-                            letter-spacing: 0px;
-                            background-color: #3879D9;
-                            color: white;
-                            height: 22px;
-                            line-height: 22px;
-                            text-align: center;
-                            border-right: 1px solid #99F;
-                            border-bottom: 1px solid #99F;
-                            cursor: default;
-                        }
-
-                            .bar-chart > .bar-chart-content > .bar-chart-header > .header-row > .header-row-cell > .shade {
-                                position: relative;
-                                display: none;
-                                outline: 1px dashed rgba(20,90,255,0.5);
-                                background-color: rgba(20,90,255,0.1);
-                                height: 3000px;
-                                width: 100%;
-                                top: 0px;
-                                z-index: -1;
-                            }
-
-                            .bar-chart > .bar-chart-content > .bar-chart-header > .header-row > .header-row-cell:hover > .shade {
-                                display: block;
-                            }
-
-                            .bar-chart > .bar-chart-content > .bar-chart-header > .header-row > .header-row-cell > .shade:hover {
-                                display: none;
-                            }
-
-                            .bar-chart > .bar-chart-content > .bar-chart-header > .header-row > .header-row-cell.year {
-                            }
-
-                .bar-chart > .bar-chart-content > .bar-chart-sidebar {
-                    position: relative;
-                    width: 150px;
-                    z-index: 9;
-                }
-
-                    .bar-chart > .bar-chart-content > .bar-chart-sidebar > .sidebar-row {
-                        box-sizing: border-box;
-                        width: 150px;
-                        text-align: right;
-                        padding-right: 10px;
-                        font-size: 13px;
-                        height: 22px;
-                        line-height: 22px;
-                        background-color: #3879D9;
-                        color: white;
-                        border-right: 1px solid #99F;
-                        border-bottom: 1px solid #99F;
-                        cursor: default;
-                    }
-
-                        .bar-chart > .bar-chart-content > .bar-chart-sidebar > .sidebar-row > .shade {
-                            position: relative;
-                            display: none;
-                            outline: 1px dashed rgba(20,90,255,0.5);
-                            background-color: rgba(20,90,255,0.1);
-                            width: 3000px;
-                            height: 21px;
-                            left: 150px;
-                            top: -22px;
-                            z-index: -1;
-                        }
-
-                        .bar-chart > .bar-chart-content > .bar-chart-sidebar > .sidebar-row:hover > .shade {
-                            display: block;
-                        }
-
-                        .bar-chart > .bar-chart-content > .bar-chart-sidebar > .sidebar-row > .shade:hover {
-                            display: none;
-                        }
-
-                .bar-chart > .bar-chart-content > .bar-chart-data {
-                    position: absolute;
-                    top: 44px;
-                    left: 150px;
-                    width: calc(100% - 150px);
-                    z-index: 8;
-                }
-
-                    .bar-chart > .bar-chart-content > .bar-chart-data > .data-row {
-                        width: 100%;
-                    }
-
-                        .bar-chart > .bar-chart-content > .bar-chart-data > .data-row > .data-cell {
-                            position: relative;
-                            box-sizing: border-box;
-                            display: inline-block;
-                            letter-spacing: 0px;
-                            height: 22px;
-                            line-height: 22px;
-                            text-align: center;
-                            border-right: 1px solid #eee;
-                            border-bottom: 1px solid #eee;
-                            width: 50px;
-                        }
-
-                        .bar-chart > .bar-chart-content > .bar-chart-data > .data-row:last-child {
-                            box-shadow: inset 0px -2px 3px rgba(20,100,250,0.3);
-                        }
-
-                        .bar-chart > .bar-chart-content > .bar-chart-data > .data-row > .data-cell:hover {
-                            box-shadow: 0px 0px 3px rgba(0,0,0,1);
-                            z-index: 11;
-                        }
-
-                        .bar-chart > .bar-chart-content > .bar-chart-data > .data-row > .data-cell > .data-cell-table {
-                            word-break: break-word;
-                            display: table;
-                            width: 100%;
-                            height: 100%;
-                            table-layout: fixed;
-                        }
-
-                            .bar-chart > .bar-chart-content > .bar-chart-data > .data-row > .data-cell > .data-cell-table > a {
-                                display: table-cell;
-                                line-height: 22px;
-                                cursor: pointer;
-                                text-overflow: clip;
-                                text-decoration: none;
-                                overflow: hidden;
-                                white-space: nowrap;
-                                color: #EEE;
-                            }
-
-            .bar-chart > .bar-chart-scrollbar {
-                transition: 0.15s;
-                position: absolute;
-                z-index: 12;
-                cursor: default;
-            }
-
-                .bar-chart > .bar-chart-scrollbar.horizontal {
-                    bottom: -30px;
-                    left: 0px;
-                    width: 100%;
-                    height: 16px;
-                }
-
-                    .bar-chart > .bar-chart-scrollbar.horizontal > .bar-chart-scrollbar-content {
-                        position: absolute;
-                        bottom: 0px;
-                        left: 0px;
-                        width: 100%;
-                        height: 16px;
-                    }
-
-                .bar-chart > .bar-chart-scrollbar.vertical {
-                    right: -30px;
-                    top: 0px;
-                    width: 16px;
-                    height: 100%;
-                }
-
-                    .bar-chart > .bar-chart-scrollbar.vertical > .bar-chart-scrollbar-content {
-                        position: absolute;
-                        top: 0px;
-                        left: 0px;
-                        width: 16px;
-                        height: calc(100%);
-                    }
-
-                /*按钮*/
-                .bar-chart > .bar-chart-scrollbar > .bar-chart-scrollbar-content .scrollbar-btn {
-                    position: absolute;
-                    display: block;
-                    background-image: url(scroll_buttons.png);
-                    background-repeat: no-repeat;
-                    width: 16px;
-                    height: 16px;
-                    cursor: pointer;
-                    filter: "alpha(opacity=30)";
-                    -ms-filter: "alpha(opacity=30)";
-                    opacity: 0.3;
-                    transition: 0.15s;
-                }
-
-                .bar-chart > .bar-chart-scrollbar.horizontal > .bar-chart-scrollbar-content > .scrollbar-btn.btn-prev {
-                    top: 0px;
-                    left: 0px;
-                    background-position: -124px -112px;
-                }
-
-                .bar-chart > .bar-chart-scrollbar.horizontal > .bar-chart-scrollbar-content > .scrollbar-btn.btn-next {
-                    right: 0px;
-                    bottom: 0px;
-                    background-position: -123px -128px;
-                }
-
-                .bar-chart > .bar-chart-scrollbar.vertical > .bar-chart-scrollbar-content > .scrollbar-btn.btn-prev {
-                    top: 0px;
-                    left: 0px;
-                    background-position: -112px -74px;
-                }
-
-                .bar-chart > .bar-chart-scrollbar.vertical > .bar-chart-scrollbar-content > .scrollbar-btn.btn-next {
-                    right: 0px;
-                    bottom: 0px;
-                    background-position: -112px -94px;
-                }
-
-                /*轨道*/
-                .bar-chart > .bar-chart-scrollbar > .bar-chart-scrollbar-content > .scrollbar-rail {
-                    position: relative;
-                    background-color: rgba(0,0,0,0.1);
-                    border-radius: 2px;
-                    transition: 0.15s;
-                }
-
-                    .bar-chart > .bar-chart-scrollbar > .bar-chart-scrollbar-content > .scrollbar-rail:hover {
-                        background-color: rgba(0,0,0,0.2);
-                    }
-
-                .bar-chart > .bar-chart-scrollbar.horizontal > .bar-chart-scrollbar-content > .scrollbar-rail {
-                    height: 4px;
-                    left: 16px;
-                    width: calc(100% - 32px);
-                    top: 6px;
-                }
-
-                .bar-chart > .bar-chart-scrollbar.vertical > .bar-chart-scrollbar-content > .scrollbar-rail {
-                    width: 4px;
-                    top: 16px;
-                    height: calc(100% - 32px);
-                    left: 6px;
-                }
-
-                /*滑块*/
-                .bar-chart > .bar-chart-scrollbar.horizontal > .bar-chart-scrollbar-content > .scrollbar-dragger {
-                    cursor: default;
-                    position: absolute;
-                    min-width: 30px;
-                    display: block;
-                    max-height: 250px;
-                    top: 0px;
-                    height: 100%;
-                }
-
-                    .bar-chart > .bar-chart-scrollbar.horizontal > .bar-chart-scrollbar-content > .scrollbar-dragger > .scrollbar-dragger-bar {
-                        position: absolute;
-                        height: 6px;
-                        width: 100%;
-                        top: 5px;
-                        background-color: rgba(0,0,0,0.4);
-                        -webkit-border-radius: 2px;
-                        -moz-border-radius: 2px;
-                        border-radius: 2px;
-                    }
-
-                .bar-chart > .bar-chart-scrollbar.vertical > .bar-chart-scrollbar-content > .scrollbar-dragger {
-                    position: absolute;
-                    min-height: 30px;
-                    display: block;
-                    left: 0px;
-                    width: 100%;
-                }
-
-                    .bar-chart > .bar-chart-scrollbar.vertical > .bar-chart-scrollbar-content > .scrollbar-dragger > .scrollbar-dragger-bar {
-                        position: absolute;
-                        width: 6px;
-                        height: 100%;
-                        left: 5px;
-                        background-color: rgba(0,0,0,0.4);
-                        -webkit-border-radius: 2px;
-                        -moz-border-radius: 2px;
-                        border-radius: 2px;
-                    }
-
-                /*各种鼠标移上去的效果*/
-                .bar-chart > .bar-chart-scrollbar:hover > .bar-chart-scrollbar-content .scrollbar-btn {
-                    transition: 0.15s;
-                    filter: "alpha(opacity=50)";
-                    -ms-filter: "alpha(opacity=50)";
-                    opacity: 0.5;
-                }
-
-                .bar-chart > .bar-chart-scrollbar > .bar-chart-scrollbar-content .scrollbar-btn:hover {
-                    transition: 0.15s;
-                    filter: "alpha(opacity=90)";
-                    -ms-filter: "alpha(opacity=90)";
-                    opacity: 0.9;
-                }
-
-                .bar-chart > .bar-chart-scrollbar:hover > .bar-chart-scrollbar-content > .scrollbar-dragger > .scrollbar-dragger-bar {
-                    transition: 0.15s;
-                    background-color: rgba(0,0,0,0.5);
-                }
-
-                .bar-chart > .bar-chart-scrollbar > .bar-chart-scrollbar-content > .scrollbar-dragger:hover > .scrollbar-dragger-bar,
-                .bar-chart > .bar-chart-scrollbar.active > .bar-chart-scrollbar-content > .scrollbar-dragger > .scrollbar-dragger-bar {
-                    transition: 0.15s;
-                    background-color: rgba(0,0,0,0.7);
-                }
-
-
-        .bg-red {
-            transition: 0.15s;
-            background-color: #EE0000;
-        }
-
-            .bg-red:hover {
-                transition: 0.15s;
-                background-color: #FF0000;
-            }
-
-        .bg-yellow {
-            transition: 0.15s;
-            background-color: #EEB000;
-        }
-
-            .bg-yellow:hover {
-                transition: 0.15s;
-                background-color: #FFC000;
-            }
-
-        .bg-green {
-            transition: 0.15s;
-            background-color: #8AAA48;
-        }
-
-            .bg-green:hover {
-                transition: 0.15s;
-                background-color: #9BBB59;
-            }
+.bar-chart > .bar-chart-scrollbar:hover > .bar-chart-scrollbar-content .scrollbar-btn {
+    transition: 0.15s;
+    filter: "alpha(opacity=50)";
+    -ms-filter: "alpha(opacity=50)";
+    opacity: 0.5;
+}
+.bar-chart > .bar-chart-scrollbar > .bar-chart-scrollbar-content .scrollbar-btn:hover {
+    transition: 0.15s;
+    filter: "alpha(opacity=90)";
+    -ms-filter: "alpha(opacity=90)";
+    opacity: 0.9;
+}
+.bar-chart > .bar-chart-scrollbar:hover > .bar-chart-scrollbar-content > .scrollbar-dragger > .scrollbar-dragger-bar {
+    transition: 0.15s;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.bar-chart > .bar-chart-scrollbar > .bar-chart-scrollbar-content > .scrollbar-dragger:hover > .scrollbar-dragger-bar,
+.bar-chart > .bar-chart-scrollbar.active > .bar-chart-scrollbar-content > .scrollbar-dragger > .scrollbar-dragger-bar {
+    transition: 0.15s;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.bg-red {
+    transition: 0.15s;
+    background-color: #EE0000;
+}
+.bg-red:hover {
+    transition: 0.15s;
+    background-color: #FF0000;
+}
+.bg-yellow {
+    transition: 0.15s;
+    background-color: #EEB000;
+}
+.bg-yellow:hover {
+    transition: 0.15s;
+    background-color: #FFC000;
+}
+.bg-green {
+    transition: 0.15s;
+    background-color: #8AAA48;
+}
+.bg-green:hover {
+    transition: 0.15s;
+    background-color: #9BBB59;
+}

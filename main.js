@@ -100,7 +100,7 @@ var program = [{
  */
 Tool = {
         //绑定
-        Bind: function(obj, type, handler) {
+        Bind: function (obj, type, handler) {
             var node = typeof obj == "string" ? $(obj) : obj;
             if (node.addEventListener) {
                 node.addEventListener(type, handler, false);
@@ -197,7 +197,7 @@ function BarChart(element, startDate, endDate) {
                 var elementClassList = me.Element.className.split(" ");
                 if (elementClassList.indexOf("autoscroll") < 0) elementClassList.push("autoscroll");
                 me.Element.className = elementClassList.join(" ");
-                me.Timer.Event = setInterval(function() {
+                me.Timer.Event = setInterval(function () {
                     if (me.Region.Top < me.ProgramCount * 22 - me.Region.WindowHeight) me.Region.Top += me.Timer.ScrollLineNumber * 22;
                     else me.Region.Top = 0;
                 }, me.Timer.Time);
@@ -224,23 +224,23 @@ function BarChart(element, startDate, endDate) {
     var _oldLocation = 0;
 
     //点击向上箭头
-    Tool.Bind(this.VerticalElementBtnUp, 'click', function(event) {
+    Tool.Bind(this.VerticalElementBtnUp, 'click', function (event) {
         me.Region.Top -= 22;
     });
     //点击向下箭头
-    Tool.Bind(this.VerticalElementBtnDown, 'click', function(event) {
+    Tool.Bind(this.VerticalElementBtnDown, 'click', function (event) {
         me.Region.Top += +22;
     });
     //点击向左箭头
-    Tool.Bind(this.VerticalElementBtnLeft, 'click', function(event) {
+    Tool.Bind(this.VerticalElementBtnLeft, 'click', function (event) {
         me.Region.Left -= 50;
     });
     //点击向右箭头
-    Tool.Bind(this.VerticalElementBtnRight, 'click', function(event) {
+    Tool.Bind(this.VerticalElementBtnRight, 'click', function (event) {
         me.Region.Left += 50;
     });
     //点击纵向滚动条滑块（用于拖拽）
-    Tool.Bind(this.VerticalElementBar, 'mousedown', function(event) {
+    Tool.Bind(this.VerticalElementBar, 'mousedown', function (event) {
         _initMouseLocation = {
             x: event.clientX,
             y: event.clientY
@@ -249,7 +249,7 @@ function BarChart(element, startDate, endDate) {
         _mouseTopDownScroll = true;
     });
     //点击纵向滚动条轨道（用于快速翻页）
-    Tool.Bind(this.VerticalElementRail, 'mousedown', function(event) {
+    Tool.Bind(this.VerticalElementRail, 'mousedown', function (event) {
         if (event.offsetY > parseInt(me.VerticalElementBar.style.height) + parseInt(me.HorizontalElementBar.style.top)) {
             me.Region.Top += me.Region.WindowHeight;
         } else if (event.offsetY < me.Region.Top) {
@@ -257,7 +257,7 @@ function BarChart(element, startDate, endDate) {
         }
     });
     //点击横向滚动条滑块（用于拖拽）
-    Tool.Bind(this.HorizontalElementBar, 'mousedown', function(event) {
+    Tool.Bind(this.HorizontalElementBar, 'mousedown', function (event) {
         _initMouseLocation = {
             x: event.clientX,
             y: event.clientY
@@ -266,7 +266,7 @@ function BarChart(element, startDate, endDate) {
         _mouseTopDownScroll = false;
     });
     //点击横向滚动条轨道（用于快速翻页）
-    Tool.Bind(this.HorizontalElementRail, 'mousedown', function(event) {
+    Tool.Bind(this.HorizontalElementRail, 'mousedown', function (event) {
         if (event.offsetX > parseInt(me.HorizontalElementBar.style.width) + parseInt(me.HorizontalElementBar.style.left)) {
             me.Region.Left += me.Region.WindowWidth;
         } else if (event.offsetY < me.Region.Left) {
@@ -274,7 +274,7 @@ function BarChart(element, startDate, endDate) {
         }
     });
     //放开滚动条
-    Tool.Bind(document, 'mouseup', function(event) {
+    Tool.Bind(document, 'mouseup', function (event) {
         _initMouseLocation = {
             x: 0,
             y: 0
@@ -282,7 +282,7 @@ function BarChart(element, startDate, endDate) {
         _isMouseDown = false;
     });
     //拖拽滚动条
-    Tool.Bind(document, 'mousemove', function(event) {
+    Tool.Bind(document, 'mousemove', function (event) {
         if (_isMouseDown) {
             if (_mouseTopDownScroll) {
                 var result = (event.clientY - _initMouseLocation.y);
@@ -300,7 +300,7 @@ function BarChart(element, startDate, endDate) {
         }
     });
     //键盘上下左右
-    Tool.Bind(document, 'keydown', function(event) {
+    Tool.Bind(document, 'keydown', function (event) {
         console.log(event);
         switch (event.keyCode) {
             case 33:
@@ -325,7 +325,7 @@ function BarChart(element, startDate, endDate) {
         }
     });
     //鼠标滚轮滚动事件
-    Tool.Bind(me.Element, 'mousewheel', function(event) {
+    Tool.Bind(me.Element, 'mousewheel', function (event) {
         var e = event || window.event;
         if (e.wheelDeltaY == undefined && e.wheelDeltaX == undefined) {
             me.Region.Top = me.ContentElement.scrollTop - (e.wheelDelta ? e.wheelDelta : e.detail * 22) / 40 * 22;
@@ -340,7 +340,7 @@ function BarChart(element, startDate, endDate) {
         else event.preventDefault();
     });
     //初始化数据
-    this.Init = function(data, startDate, endDate) {
+    this.Init = function (data, startDate, endDate) {
             if (!startDate) startDate = new Date();
             if (!endDate) endDate = new Date().setMonth(new Date().getMonth() + 1);
             me.DayCount = 0;
@@ -404,7 +404,7 @@ function BarChart(element, startDate, endDate) {
             me.Region.Left = 0;
         }
         //自动滚屏
-    this.AutoScroll = function(checked, time, linenumber) {
+    this.AutoScroll = function (checked, time, linenumber) {
         if (checked === undefined) checked = true;
         if (time !== undefined) me.Timer.Time = time;
         if (linenumber !== undefined) me.Timer.ScrollLineNumber = linenumber;
