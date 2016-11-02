@@ -8,10 +8,9 @@
     <label><input type="checkbox" value="" onchange="isautoroll(this)" />自动滚动</label>
     <div class="bar-chart">
         <div class="bar-chart-content">
-            <div class="bar-chart-lefttopcell">Program</div>
+            <div class="bar-chart-lefttopcell"></div>
             <div class="bar-chart-header">
                 <div class="header-row"></div>
-                  <div class="header-row"></div>
             </div>
             <div class="bar-chart-sidebar"></div>
             <div class="bar-chart-data"></div>
@@ -37,15 +36,57 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="js/FormTable.js"></script>
     <script type="text/javascript">
-        var barchart = new BarChart(".bar-chart");
-        barchart.Init(program, new Date(2016, 0, 24), new Date(2016, 2, 18));
+        var table = new FormTable(".bar-chart");
+        var data = {
+            Options: {
+                Cell: {
+                    AutoSize: true
+                }
+            },
+            rows: [
+                {text: "第1行"},
+                {text: "第2行"},
+                {text: "第3行"}
+            ],
+            columns: [
+                {text: "第1列"},
+                {text: "第2列"},
+                {text: "第3列"},
+                {text: "第4列"},
+                {text: "第5列"},
+                {text: "第6列"},
+                {text: "第7列"},
+                {text: "第8列"},
+                {text: "第9列"},
+                {text: "第10列"},
+                {text: "第11列"},
+                {text: "第12列"},
+                {text: "第13列"},
+                {text: "第14列"},
+                {text: "第15列"},
+                {text: "第16列"},
+                {text: "第17列"},
+                {text: "第18列"},
+                {text: "第19列"},
+                {text: "第20列"},
+                {text: "第21列"},
+                {text: "第22列"}
+            ],
+            data: []
+        };
+        for (var i = 0; i < 100; i++) {
+            data.data[i] = [];
+            for (var o = 0; o < 12; o++) {
+                data.data[i][o] = i+o;
+            }
+        }
+        table.Init(data);
 
         function isautoroll(con) {
-            barchart.AutoScroll(con.checked, 50, 1);
+            table.AutoScroll(con.checked, 50, 1);
         }
     </script>
-    
 </body>
 </html>
